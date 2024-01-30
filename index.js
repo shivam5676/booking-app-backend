@@ -4,6 +4,7 @@ const routes = require("./Routes/product");
 const sequelize = require("./util/Database");
 const products = require("./models/products");
 const cors = require("cors");
+const productDetails = require("./models/productDetail");
 const app = express();
 app.use(bodyParser.json({ extended: false }));
 
@@ -12,6 +13,8 @@ app.use(
     origin: "*",
   })
 );
+products.hasOne(productDetails, { foreignKey: 'productId' });
+productDetails.belongsTo(products, { foreignKey: 'productId' });
 app.use(routes);
 sequelize
   .sync()
