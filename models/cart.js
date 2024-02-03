@@ -30,11 +30,11 @@ const Cart=sequelize.define("cart",{
     //     allowNull: false,
     // }
     //  ,
-      couponApplied: {
-        type: Sequelize.STRING,
+      // couponApplied: {
+      //   type: Sequelize.STRING,
     
-        allowNull: true,
-      },
+      //   allowNull: true,
+      // },
     //   userId:{
     //     type: Sequelize.INTEGER,
     

@@ -7,6 +7,7 @@ const cors = require("cors");
 const productDetails = require("./models/productDetail");
 const Cart = require("./models/cart");
 const users = require("./models/user");
+const Order = require("./models/order");
 const app = express();
 app.use(bodyParser.json({ extended: false }));
 
@@ -20,8 +21,11 @@ products.hasOne(productDetails, { foreignKey: 'productId' });
 productDetails.belongsTo(products, { foreignKey: 'productId' });
 Cart.belongsTo(users);
 users.hasMany(Cart)
-products.belongsToMany(Cart,{ through: "cartItems" });
-Cart.belongsToMany(products,{ through: "cartItems" }); // Each cart belongs to a product
+// products.belongsToMany(Cart,{ through: "cartItems" });
+// Cart.belongsToMany(products,{ through: "cartItems" }); // Each cart belongs to a product
+Cart.belongsTo(products)
+products.hasMany(Cart)
+
 
 app.use(routes);
 sequelize

@@ -32,5 +32,8 @@ const productDetails = sequelize.define("productDetails", {
     type: Sequelize.STRING,
     allowNull: true,
   },
+
+
+  
 });
 module.exports = productDetails;
