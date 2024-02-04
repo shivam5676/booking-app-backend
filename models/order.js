@@ -51,6 +51,7 @@ const Order=sequelize.define("order",{
     
         allowNull: false,
         defaultValue:"payment not made"
+        
      },userId:{
       type: Sequelize.INTEGER,
 
