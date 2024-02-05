@@ -1,6 +1,8 @@
 const Sequelize=require("sequelize")
-const sequelize=new Sequelize("bookingApp","root","(@Shivam",{
+const dotenv = require("dotenv").config();
+const sequelize=new Sequelize(process.env.SQLSCHEMA,process.env.SQLUSER,process.env.SQLPASSWORD,{
     dialect:"mysql",
-    host:"localhost"
+    host:process.env.SQLHOST
+    
 })
 module.exports=sequelize;

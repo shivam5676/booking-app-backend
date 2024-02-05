@@ -24,15 +24,7 @@ const users = sequelize.define("users", {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false,
-  },
-  createdAt: {
-    type: Sequelize.STRING,
-    allowNull: true,
-  },
+  }
   
-  updatedAt: {
-    type: Sequelize.STRING,
-    allowNull: true,
-  },
 });
 module.exports=users
