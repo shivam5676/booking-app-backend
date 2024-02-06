@@ -15,6 +15,9 @@ const app = express();
 app.use(
   cors({
     origin: process.env.ORIGIN,
+    methods: process.env.METHODS,
+    credentials: true,
+    optionsSuccessStatus: 204,
   })
 );
 app.use(bodyParser.json({ extended: false }));
