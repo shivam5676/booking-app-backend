@@ -10,14 +10,14 @@ const users = require("./models/user");
 const Order = require("./models/order");
 const dotenv = require("dotenv").config();
 const app = express();
-app.use(bodyParser.json({ extended: false }));
+
 
 app.use(
   cors({
-    origin: "*",
+    origin: process.env.ORIGIN,
   })
 );
-
+app.use(bodyParser.json({ extended: false }));
 products.hasOne(productDetails, { foreignKey: 'productId' });
 productDetails.belongsTo(products, { foreignKey: 'productId' });
 Cart.belongsTo(users);
