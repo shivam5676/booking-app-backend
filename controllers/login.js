@@ -15,8 +15,10 @@ function tokenmaker(id, name) {
 exports.doLogin=async (req, res) => {
     const data = req.body;
     try {
-      const savedUser = await users.findOne({
+      const savedUser = await users.findOne({where:{
         email: data.email,
+      }
+        
       });
   
       if (!savedUser) {

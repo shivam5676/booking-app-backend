@@ -64,7 +64,7 @@ exports.createOrder=async (req, res) => {
           const orderFields = result.map((current) => {
             const totalAmount = current.product.price * current.quantity;
             return {
-              userId: current.userId,
+              userId: current.bookinguserId,
               name: current.product.name,
               image: current.product.image,
               quantity: current.quantity,

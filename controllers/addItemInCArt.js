@@ -21,7 +21,7 @@ exports.addItemInCart = (req, res) => {
         try {
           const itemSearch = await Cart.findOne({
             where: {
-              userId: req.user.userId,
+              bookinguserId: req.user.userId,
               productId: prodId,
             },
           });
@@ -36,7 +36,7 @@ exports.addItemInCart = (req, res) => {
 
           const saved = await Cart.create({
             quantity: 1,
-            userId: req.user.userId,
+            bookinguserId: req.user.userId,
             productId: prodId,
           });
           return res.status(200).json({ ...saved.dataValues, product: rest });

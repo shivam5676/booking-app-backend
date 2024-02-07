@@ -1,9 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const routes = require("./Routes/product");
 const sequelize = require("./util/Database");
 const products = require("./models/products");
-const cors = require("cors");
 const productDetails = require("./models/productDetail");
 const Cart = require("./models/cart");
 const users = require("./models/user");
@@ -11,12 +11,13 @@ const Order = require("./models/order");
 const dotenv = require("dotenv").config();
 const app = express();
 
-
+console.log(process.env.ORIGIN)
 app.use(
   cors({
     origin: process.env.ORIGIN,
     methods: process.env.METHODS,
     credentials: true,
+    
     optionsSuccessStatus: 204,
   })
 );
@@ -31,6 +32,7 @@ products.hasMany(Cart)
 
 
 app.use(routes);
+
 sequelize
   .sync()
   .then((res) => {
