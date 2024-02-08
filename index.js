@@ -16,7 +16,6 @@ app.use(
     origin: process.env.ORIGIN,
     methods: process.env.METHODS,
     credentials: true,
-
     optionsSuccessStatus: 204,
   })
 );

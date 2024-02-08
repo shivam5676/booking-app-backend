@@ -14,7 +14,7 @@ const { addItemInCart } = require("../controllers/addItemInCArt");
 const routes = express.Router();
 
 routes.get("/products",productList );
-routes.get("/productDetails/:id",Authenticator ,productDEtails);
+routes.get("/productDetails/:id",productDEtails);
 routes.post("/addItem",Authenticator ,addItemInCart);
 routes.get("/fetchCart",Authenticator,cartItems );
 routes.get("/couponVerify",Authenticator,couponsList);
