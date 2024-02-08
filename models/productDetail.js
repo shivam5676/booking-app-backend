@@ -10,7 +10,7 @@ const productDetails = sequelize.define("productDetails", {
     allowNull: false,
   },
   overview: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(800),
 
     allowNull: false,
   },
